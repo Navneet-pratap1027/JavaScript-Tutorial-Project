@@ -12,7 +12,7 @@ let userEmail;// (undifined)
 const id = Symbol('123')
 const anotherId = Symbol('123')
 
-console.log(id == anotherId);
+// console.log(id == anotherId);
 
 // Reference (non primitive)
 
@@ -28,4 +28,30 @@ const myFunction = function(){
     console.log("Hello world");
 }
 
-console.log(typeof myFunction);
+// console.log(typeof myFunction);
+
+//  #########################################################################################
+
+// stack (primitive) ,Heap (Non-primitive)
+
+let myYoutubename = "Creatordotcom"
+
+let anothername = myYoutubename
+
+anothername = "chaiaurcode"
+
+// copy the stored variable
+
+console.log(myYoutubename);
+console.log(anothername);
+
+let userOne ={
+    email:"user@google.com",
+    upi: "user@ybl"
+}
+
+let userTwo = userOne
+userTwo.email="navneet@google.com"
+// use refrence of stored variable
+console.log(userOne.email);
+console.log(userTwo.email);
