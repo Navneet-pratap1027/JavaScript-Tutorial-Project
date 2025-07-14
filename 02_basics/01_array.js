@@ -25,3 +25,16 @@ const myArr2 =new Array(6,5,4,2,3,6,8)
 // console.log(typeof newArr);
 
 // SLICE , SPLICE
+
+console.log("A ", myArr);
+
+const myn1 = myArr.slice(1,3)
+console.log(myn1);
+
+console.log("B ", myArr);
+
+const myn2 = myArr.splice(1,3)// include range(last value) ,and it also make change in orginal array
+                                 // output after splice operation => [ 3, 4, 5 ]
+                                //  change in orginal array => C  [ 2, 6, 7, 8 ]=> it remove the element from orginal array..
+console.log(myn2);
+console.log("C ", myArr);
