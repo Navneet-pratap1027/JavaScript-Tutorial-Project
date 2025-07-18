@@ -38,4 +38,42 @@ function addTwoNum (num1,num2){
         }
     return `${username} just logged in`
  }
- console.log(loginUserMessage())// if we dont pass any value print sam default case ,if we pass any value it overwrite that value.. 
+ // console.log(loginUserMessage())// if we dont pass any value print sam default case ,if we pass any value it overwrite that value.. 
+
+ function calculateCartPrice(... num1){// here ... dot work as rest operator, which push all value into array
+    return num1
+
+ }
+
+ // console.log(calculateCartPrice(200,400,500))
+
+ function calculateCartPrice(val1, val2 ,... num1){// here ... dot work as rest operator, which push all value into array
+    return num1
+
+ }
+
+ // console.log(calculateCartPrice(200,400,500,600,700))// this print only value 500,600,700 , because starting two value goes into val1,val2
+
+ const user = {
+    username: "Navneet",
+    price: 199
+ }
+
+ function handleObject(anyobject){
+    console.log(`Username is ${anyobject.username} and price is ${anyobject.price}`);
+ }
+
+//  handleObject(user)
+handleObject({
+    username:"navneet",
+    price: 899
+})
+
+const myNewArray = [200, 400,100,600]
+function returnSecondValue(getArray){
+    return getArray[1]
+}
+
+// console.log(returnSecondValue(myNewArray));
+console.log(returnSecondValue([200, 400, 500,1000]));
+    
