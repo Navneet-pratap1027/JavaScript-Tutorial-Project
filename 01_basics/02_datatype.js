@@ -21,7 +21,7 @@ let isloggedIn = false
 // symbol =>unique
 
 // object
-let teaType ={"leamon tea","orange tea", "oolong tea"}
+let teaType =["leamon tea","orange tea", "oolong tea"]
  console.log(typeof "Navneet");
  console.log(typeof undefined); //output=> undefined
   console.log(typeof null);//output=> object
