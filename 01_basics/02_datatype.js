@@ -20,7 +20,6 @@ let isloggedIn = false
 // undefined =>(value not assined yet)
 // symbol =>unique
 
-
 // object
 let teaType ={"leamon tea","orange tea", "oolong tea"}
  console.log(typeof "Navneet");
