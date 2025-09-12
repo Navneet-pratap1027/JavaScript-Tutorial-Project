@@ -1,3 +1,12 @@
+let gameName ="spiderman";
+gameName = "batman";
+console.log(gameName);
+
+const username = "navneetpratp";
+
+username="navneet";
+
+// console.log(username); // after using const we can not able to assign value in variable, like let
 const accountId =12345
 let accountEmail="navneet@gamil.com"
 var accountPassword ="8768"
