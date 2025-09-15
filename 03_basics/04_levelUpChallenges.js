@@ -47,7 +47,7 @@ for (let i = 0; i < cities.length; i++) {
 3. Use a for-of loop to iterate through the array [1, 2,3,4,5] and stop when the number 4 is found. Store the numbers before 4 in an array named smallNumbers.
 */
 
-let numbers = [1, 2, 3, 4, 5];
+// let numbers = [1, 2, 3, 4, 5];
 let smallNumbers = [];
 
 for (const num of numbers) {
@@ -164,13 +164,43 @@ myWorldCities.forEach((city) => {
         return;
     }
     traveledCities.push(city);
-})
-
-
-
-
 });
+// console.log(traveledCities);
 
-console.log(traveledCities);
+/* 
+9. Write a for loop that iterates through the array [2, 5, 7, 9].
+Skip the value 7 and multiply the rest by 2. 
+Store the results in a new array named doubledNumbers.
+*/
 
-I
+let numbers = [2, 5, 7, 9];
+let doubledNumbers = [];
+
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] === 7) {
+    continue; 
+  }
+  doubledNumbers.push(numbers[i] * 2);
+}
+
+// console.log(doubledNumbers);
+
+/*  
+10. Use a for-of loop to iterate through the array  
+["chai", "green tea", "black tea", "jasmine tea", "herbal tea"]  
+and stop when the length of the current tea name is greater than 10.  
+Store the teas iterated over in an array named shortTeas.  
+*/
+
+let myteas = ["chai", "green tea", "black tea", "jasmine tea", "herbal tea"];
+let shortTeas = [];
+
+for (let tea of myteas) {
+  if (tea.length > 10) {
+    break; 
+  }
+  shortTeas.push(tea);
+}
+
+console.log(shortTeas);
+
