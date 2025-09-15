@@ -87,8 +87,8 @@ let cityList = [];
 
 for (let c = 0; c < cities.length; c++) {
 
-cities[c]; const myCity = cities
+const myCity = cities[c]
 
 cityList.push(myCity);
 }
-console(cityList);
+console.log(cityList);
