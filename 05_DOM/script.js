@@ -26,4 +26,52 @@ document.getElementById("highlightFirstCity").addEventListener('click', function
 
 // Example 3
 
+document.getElementById("changeOrder").addEventListener("click", function(){
+    let coffeeType=document.getElementById("coffeeType");
+    coffeeType.textContent="Espresso";
+    coffeeType.style.backgroundColor="brown";
+
+});
+
+// Example 4
+
+document.getElementById("addNewItem").addEventListener("click",function(){
+
+    let newItem = document.createElement('li')
+    newItem.textContent='Eggs'
+    document.getElementById("shoplistping").appendChild(newItem);
+});
+
+// Example 5
+
+
+document.getElementById("removeLastTask").addEventListener("click",function(){
+    let tasklist= document.getElementById("taskList");
+    tasklist.lastElementChild.remove();
+});
+
+//Example 6
+
+document.getElementById("clickMeButton").addEventListener("click",function(){
+    alert("Submit");
+});
+
+//Example 7
+
+
+document.getElementById("teaList").addEventListener('click', function(event){
+     if(event.target){
+        alert("You selected: " + event.target.textContent);
+    }
+    });
+
+/* document.getElementById("teaList").addEventListener('click', function(event){
+    //console.log(event.target)
+     if(event.target && event.target.matches(".teaItem")){
+        alert("You selected: " + event.target.textContent);// best practice
+    }
+}); */
+
+
+//Example 8
 
