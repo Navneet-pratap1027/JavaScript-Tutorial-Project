@@ -75,3 +75,23 @@ document.getElementById("teaList").addEventListener('click', function(event){
 
 //Example 8
 
+document.getElementById("feedbackForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    let feedback = document.getElementById("feedbackInput").value;
+    console.log(feedback);
+    document.getElementById("feedbackDisplay").textContent=`Feedback is: ${feedback}`;
+});
+
+
+//Example 9
+
+document.addEventListener('DOMContentLoaded',function(){
+    document.getElementById("domStatus").textContent="DOM fully loaded"
+});
+
+//Example 10
+
+document.getElementById("toggleHighlight").addEventListener("click",function(){
+    let descriptionText = document.getElementById("descriptionText");
+    descriptionText.classList.toggle("highlight");
+});
