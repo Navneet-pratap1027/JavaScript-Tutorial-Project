@@ -101,3 +101,35 @@ fetch('https://jsonplaceholder.typicode.com/users')
     console.log(data);
 })
 .catch((error) => console.log(error))
+
+
+// Course video content
+
+function fetchData(){
+    return new Promise((resolve,reject) =>{
+        setTimeout(()=>{
+            let success =false;
+            if (success){
+                resolve("Data fetched sucessfully");
+            } else {
+                reject("Error fetching data");
+            }
+        },3000)
+
+    });
+}
+
+// fetchData()
+// .then((data) => console.log(data))
+// .catch((error) => console.error(error));
+
+fetchData()
+ .then((data) => {
+    console.log(data);
+    return `Navneet`;
+ })
+ .then ((value) => {
+    console.log(value);
+})
+.catch ((error) => console.error(error));// chaining of then
+
