@@ -1,69 +1,91 @@
-// Jab pura HTML load ho jaye tabhi ye code chale
 document.addEventListener("DOMContentLoaded", () => {
   const todoInput = document.getElementById("todo-input");
   const addTaskButton = document.getElementById("add-task-btn");
   const todoList = document.getElementById("todo-list");
+  const progressText = document.getElementById("progress-text");
 
-  // Local storage se tasks le rahe hain ya empty array se start kar rahe hain
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-  // Har saved task ko screen par dikhate hain
   tasks.forEach((task) => renderTask(task));
+  updateProgress();
 
-  // Add button pe click karne pe naya task create hota hai
   addTaskButton.addEventListener("click", () => {
-    const taskText = todoInput.value.trim(); // User ke input se whitespace hata rahe hain
-    if (taskText === "") return; // Agar input khaali hai to kuch na kare
+    const taskText = todoInput.value.trim();
+    if (taskText === "") return;
 
-    // Naya task object banate hain
     const newTask = {
-      id: Date.now(), // Unique ID banane ke liye current time ka use
+      id: Date.now(),
       text: taskText,
       completed: false,
     };
 
-    tasks.push(newTask); 
-    saveTasks();          // Local storage me save kar rahe hain
-    renderTask(newTask);  // Task ko UI me dikhate hain
-    todoInput.value = ""; // Input box ko clear kar dete hain
-    console.log(tasks);   // Debug ke liye console me show karte hain
+    tasks.push(newTask);
+    saveTasks();
+    renderTask(newTask);
+    todoInput.value = "";
+    updateProgress();
   });
 
-  // Ek function jo task ko list me dikhata hai
   function renderTask(task) {
-    const li = document.createElement("li"); 
-    li.setAttribute("data-id", task.id);     // Task ID ko attribute me rakhte hain
+    const li = document.createElement("li");
+    li.setAttribute("data-id", task.id);
 
-    if (task.completed) li.classList.add("completed"); // Agar task complete hai to class add karein
+    // Checkbox create karo
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = task.completed;
 
-    // List item ke andar task text aur delete button dikhate hain
-    li.innerHTML = `
-      <span>${task.text}</span>
-      <button>Delete</button>
-    `;
+    // Task text span
+    const span = document.createElement("span");
+    span.textContent = task.text;
+    if (task.completed) span.classList.add("completed");
 
-    // Jab list item pe click ho to task complete/incomplete toggle ho jaye
-    li.addEventListener("click", (e) => {
-      if (e.target.tagName === "BUTTON") return; // Agar button pe click hua to ignore karein
-      task.completed = !task.completed; // Status toggle karein
-      li.classList.toggle("completed"); // Class update karein
-      saveTasks(); 
+    // Delete button
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+
+    // Checkbox change event - toggle complete
+    checkbox.addEventListener("change", () => {
+      task.completed = checkbox.checked;
+      if (task.completed) {
+        span.classList.add("completed");
+      } else {
+        span.classList.remove("completed");
+      }
+      saveTasks();
+      updateProgress();
     });
 
-    // Delete button pe click karne se task remove ho jaye
-    li.querySelector("button").addEventListener("click", (e) => {
-      e.stopPropagation(); // Click bubbling rok de (warna toggle bhi hota)
-      tasks = tasks.filter((t) => t.id !== task.id); // Task ko list se hata de
-      li.remove(); 
-      saveTasks(); 
+    // Delete button event
+    deleteBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      tasks = tasks.filter((t) => t.id !== task.id);
+      li.remove();
+      saveTasks();
+      updateProgress();
     });
 
-    todoList.appendChild(li); // Final me list item ko ul me add karein
+    // Clear existing content & append new elements
+    li.innerHTML = "";
+    li.appendChild(checkbox);
+    li.appendChild(span);
+    li.appendChild(deleteBtn);
+
+    todoList.appendChild(li);
   }
 
-  // Local storage me tasks save karne ka function
   function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
 
+  function updateProgress() {
+    const total = tasks.length;
+    const completed = tasks.filter((task) => task.completed).length;
+    progressText.textContent = `You have completed ${completed} out of ${total} tasks.`;
+
+    // Optional: Jab sab complete ho jaye to alag message dikhao
+    if (total > 0 && completed === total) {
+      progressText.textContent = "🎉 Great job! All tasks completed.";
+    }
+  }
 });

@@ -8,13 +8,25 @@
   </head>
   <body>
     <div class="container">
-      <h1>To-Do List</h1>
-      <div class="input-container">
-        <input type="text" id="todo-input" placeholder="Add a new task..." />
-        <button id="add-task-btn">Add Task</button>
-      </div>
-      <ul id="todo-list"></ul>
-    </div>
+  <h1>To-Do List</h1>
+
+  <!-- Progress container ab heading ke niche hai -->
+  <div id="progress-container">
+    <h3>Keep it up!</h3>
+    <p id="progress-text">You have completed 0 out of 0 tasks.</p>
+  </div>
+
+  <!-- Input container -->
+  <div class="input-container">
+    <input type="text" id="todo-input" placeholder="Add a new task..." />
+    <button id="add-task-btn">Add Task</button>
+  </div>
+
+  <!-- To-do list -->
+  <ul id="todo-list"></ul>
+</div>
     <script src="script.js"></script>
   </body>
 </html>
+
+
